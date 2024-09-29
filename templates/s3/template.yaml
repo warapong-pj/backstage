@@ -11,17 +11,24 @@ spec:
   parameters:
     - title: Project name
       required:
+        - project
         - name
         - owner
         - region
         - environment
-        - action
+        # - action
       properties:
+        project:
+          title: Project
+          type: string
+          description: Project name
+          ui:autofocus: true
+          ui:options:
+            rows: 5
         name:
           title: Name
           type: string
           description: Unique resource name
-          ui:autofocus: true
           ui:options:
             rows: 5
         owner:
@@ -47,13 +54,13 @@ spec:
             - UAT
             - PRD
             - DR
-        action:
-          title: action
-          type: string
-          description: Terrafrom action(apply/destroy)
-          enum:
-            - apply
-            - destroy
+        # action:
+        #   title: action
+        #   type: string
+        #   description: Terrafrom action(apply/destroy)
+        #   enum:
+        #     - apply
+        #     - destroy
 
   steps:
     - id: fetch-base
@@ -62,6 +69,8 @@ spec:
       input:
         url: ./content
         values:
+          project: ${{ parameters.project }}
+          environment: ${{ parameters.environment }}
           name: ${{ parameters.name }}
           owner: ${{ parameters.owner }}
 
@@ -71,7 +80,7 @@ spec:
       input:
         repoUrl: github.com?repo=infra-as-a-code&owner=warapong-pj
         branchName: aws/s3/${{ parameters.name }}
-        title: Create AWS S3 ${{ parameters.name }}
+        title: Create AWS S3 ${{ parameters.name }} for ${{ parameters.project }} on ${{ parameters.environment }}
         update: true
         description: |
           # Create AWS S3 resource
@@ -80,20 +89,23 @@ spec:
           Region:  ${{ parameters.region }}
           Resource Name: ${{ parameters.name }}
           Environment: ${{ parameters.environment }}
+        targetPath: ${{ parameters.project }}/${{ parameters.environment }}/${{ parameters.name }}
 
     # - id: register
     #   name: Register
     #   action: catalog:register
     #   input:
     #     repoContentsUrl: ${{ steps['pull-request'].output.remoteUrl }}
-    #     catalogInfoPath: '/catalog-info.yaml'
+    #     catalogInfoPath: 'aws/${{ parameters.project }}/${{ parameters.environment }}/${{ parameters.name }}/catalog-info.yaml'
 
   output:
     links:
       - title: Github pull request
         url: ${{ steps['pull-request'].output.remoteUrl }}
         icon: github
-    # links:
-    #   - title: Open in catalog
-    #     icon: catalog
-    #     entityRef: ${{ steps['register'].output.entityRef }}
+      # - title: Open in catalog
+      #   icon: catalog
+      #   entityRef: ${{ steps['register'].output.entityRef }}
+      - title: Terrafrom module
+        icon: docs
+        url: "https://registry.terraform.io/modules/terraform-aws-modules/s3-bucket/aws/4.1.2"
