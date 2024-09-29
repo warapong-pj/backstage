@@ -9,7 +9,7 @@ spec:
   owner: group:platform-team
   type: template
   parameters:
-    - title: Project name
+    - title: Fill Project Name and Owner
       required:
         - name
         - owner
@@ -29,6 +29,11 @@ spec:
           ui:options:
             catalogFilter:
               kind: Group
+
+    - title: Choose GIT Server
+      required:
+        - repoUrl
+      properties:
         repoUrl:
           title: Git server
           type: string
@@ -38,7 +43,6 @@ spec:
               - github.com
 
   steps:
-    # Each step executes an action, in this case one templates files into the working directory.
     - id: fetch-base
       name: Fetch Base
       action: fetch:template
@@ -48,7 +52,6 @@ spec:
           name: ${{ parameters.name }}
           owner: ${{ parameters.owner }}
 
-    # This step publishes the contents of the working directory to GitHub.
     - id: publish
       name: Publish
       action: publish:github
@@ -56,7 +59,6 @@ spec:
         allowedHosts: [ 'github.com' ]
         repoUrl: ${{ parameters.repoUrl }}
 
-    # The final step is to register our new component in the catalog.
     - id: register
       name: Register
       action: catalog:register
@@ -64,7 +66,6 @@ spec:
         repoContentsUrl: ${{ steps['publish'].output.repoContentsUrl }}
         catalogInfoPath: '/catalog-info.yaml'
 
-# Outputs are displayed to the user after a successful execution of the template.
   output:
     links:
       - title: Repository
