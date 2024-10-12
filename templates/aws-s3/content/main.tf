@@ -12,8 +12,5 @@ module "s3-bucket" {
     enabled = true
   }
 
-  tags = {
-    Name  = "${var.project}-${var.environment}-${var.name}"
-    Owner = var.owner
-  }
+  tags = var.tags
 }

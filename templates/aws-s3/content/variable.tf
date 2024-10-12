@@ -18,6 +18,11 @@ variable "acl" {
   default = "private"
 }
 
-variable "owner" {
-  default = "platform-team"
+variable "tags" {
+  default = {
+    Name  = "${var.project}-${var.environment}-${var.name}"
+    Owner = var.owner
+    Environment       = "SIT"
+    ManageByTerraform = "True"
+  }
 }
