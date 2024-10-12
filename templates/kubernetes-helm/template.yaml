@@ -1,10 +1,10 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: create-kubernetes-kustomize
-  title: Create Kubernetes Kustomize
-  description: Create an Kubernetes Kustomize
-  tags: [ 'kubernetes', 'kustomize' ]
+  name: create-kubernetes-helm-chart
+  title: Create Kubernetes Helm chart
+  description: Create an Kubernetes Helm chart
+  tags: [ 'kubernetes', 'helm' ]
 spec:
   owner: group:platform-team
   type: template
