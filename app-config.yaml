@@ -90,6 +90,11 @@ catalog:
         - allow: [Template]
 
     - type: file
+      target: ../../templates/aws-rds-mysql/template.yaml
+      rules:
+        - allow: [Template]
+
+    - type: file
       target: ../../templates/aws-rds-postgres/template.yaml
       rules:
         - allow: [Template]
