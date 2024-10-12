@@ -88,3 +88,8 @@ catalog:
       target: ../../templates/github-repository/template.yaml
       rules:
         - allow: [Template]
+
+    - type: file
+      target: ../../templates/s3/template.yaml
+      rules:
+        - allow: [Template]
