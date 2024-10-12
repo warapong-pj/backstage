@@ -3,26 +3,21 @@ variable "region" {
 }
 
 variable "project" {
-  default = "poc"
+  default = "demo"
 }
 
 variable "environment" {
-  default = "DEV"
+  default = "s"
 }
 
 variable "name" {
-  default = "app1"
+  default = "sample"
 }
 
 variable "acl" {
   default = "private"
 }
 
-variable "tags" {
-  default = {
-    Name  = "${var.project}-${var.environment}-${var.name}"
-    Owner = var.owner
-    Environment       = "SIT"
-    ManageByTerraform = "True"
-  }
+variable "owner" {
+  default = "platform team"
 }

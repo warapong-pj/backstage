@@ -1,3 +1,12 @@
+locals {
+  tags = {
+    Name  = "${var.project}-${var.environment}-${var.name}"
+    Owner = var.owner
+    Environment       = "SIT"
+    ManageByTerraform = "True"
+  }
+}
+
 module "s3-bucket" {
   source  = "terraform-aws-modules/s3-bucket/aws"
   version = "4.1.2"
@@ -12,5 +21,5 @@ module "s3-bucket" {
     enabled = true
   }
 
-  tags = var.tags
+  tags = local.tags
 }

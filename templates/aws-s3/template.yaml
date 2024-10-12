@@ -3,7 +3,7 @@ kind: Template
 metadata:
   name: create-aws-s3
   title: Create AWS S3
-  description: Create an Create AWS S3
+  description: Create an AWS S3
   tags: [ 'aws', 's3' ]
 spec:
   owner: group:platform-team
