@@ -15,11 +15,11 @@ variable "name" {
 }
 
 variable "vpc_id" {
-  default = "vpc-2ed95876"
+  default = "vpc-xxxxxxxx"
 }
 
 variable "subnet_id" {
-  default = ["subnet-97c0f152", "subnet-618b099e", "subnet-b6d7f4f3"]
+  default = ["subnet-xxxxxxxx", "subnet-xxxxxxxx", "subnet-xxxxxxxx"]
 }
 
 variable "postgres_version" {

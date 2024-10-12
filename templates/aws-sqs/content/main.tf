@@ -1,8 +1,8 @@
 locals {
   tags = {
-    Name  = "${var.project}-${var.environment}-${var.name}"
-    Owner = var.owner
-    Environment       = "SIT"
+    Name              = "${var.project}-${var.environment}-${var.name}"
+    Owner             = var.owner
+    Environment       = var.environment
     ManageByTerraform = "True"
   }
 }
