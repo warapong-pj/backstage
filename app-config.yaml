@@ -90,6 +90,6 @@ catalog:
         - allow: [Template]
 
     - type: file
-      target: ../../templates/s3/template.yaml
+      target: ../../templates/aws-s3/template.yaml
       rules:
         - allow: [Template]
