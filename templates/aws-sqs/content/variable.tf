@@ -3,7 +3,7 @@ variable "region" {
 }
 
 variable "project" {
-  default = "demo"
+  default = "poc"
 }
 
 variable "environment" {
@@ -11,11 +11,7 @@ variable "environment" {
 }
 
 variable "name" {
-  default = "sample"
-}
-
-variable "acl" {
-  default = "private"
+  default = "sample-app"
 }
 
 variable "owner" {
