@@ -95,6 +95,11 @@ catalog:
         - allow: [Template]
 
     - type: file
+      target: ../../templates/aws-sqs/template.yaml
+      rules:
+        - allow: [Template]
+
+    - type: file
       target: ../../templates/kubernetes-kustomize/template.yaml
       rules:
         - allow: [Template]
