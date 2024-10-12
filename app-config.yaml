@@ -93,3 +93,9 @@ catalog:
       target: ../../templates/aws-s3/template.yaml
       rules:
         - allow: [Template]
+
+    - type: file
+      target: ../../templates/kubernetes-kustomize/template.yaml
+      rules:
+        - allow: [Template]
+
