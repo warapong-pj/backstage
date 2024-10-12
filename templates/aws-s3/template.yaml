@@ -9,7 +9,7 @@ spec:
   owner: group:platform-team
   type: template
   parameters:
-    - title: Project name
+    - title: Fill information
       required:
         - project
         - name

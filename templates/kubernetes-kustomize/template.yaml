@@ -60,7 +60,7 @@ spec:
           # Create Kubernetes manifest
 
           This's PR for Create Kubernetes manifest.
-          Project:  ${{ parameters.project }}
+          Project: ${{ parameters.project }}
           Service: ${{ parameters.service }}
         targetPath: ${{ parameters.project }}/${{ parameters.service }}
 
